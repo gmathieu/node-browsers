@@ -26,5 +26,8 @@ RUN \
 ADD bin/xvfb-firefox /usr/bin/xvfb-firefox
 
 ENV \
+  # disable puppeteer download as it will not work with this image
+  PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+  # browser bin paths
   CHROME_BIN=/usr/bin/chromium-browser \
   FIREFOX_BIN=/usr/bin/xvfb-firefox
