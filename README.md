@@ -1,6 +1,6 @@
 # gmathieu/node-browsers
 
-This image includes the latest version of Node 8, Firefox ESR, and Chrome with each build.
+This image includes the latest version of Node 8 and specific versions of Firefox ESR and Chrome (see Dockerfile ARG).
 It also includes the bare minimum to run on CircleCI 2.0 and common packages used for building/deployment (ex. `bash`, `curl`, `make`).
 
 ## Testing locally
