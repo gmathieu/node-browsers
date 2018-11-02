@@ -1,13 +1,13 @@
 # https://store.docker.com/images/node
-FROM node:8-stretch
+FROM node:10-stretch
 
-# https://packages.debian.org/stretch/chromium
-# https://packages.debian.org/stretch/firefox-esr
-ARG CHROMIUM=69.0.3497.92-1~deb9u1
-ARG FIREFOX=60.2.0esr-1~deb9u2
+# https://tracker.debian.org/pkg/chromium-browser
+# https://tracker.debian.org/pkg/firefox-esr
+ARG CHROMIUM=70.0.3538.67-1~deb9u1
+ARG FIREFOX=60.3.0esr-1~deb9u1
 
-# lock yarn version
-ENV YARN_VERSION 1.9.4
+# lock yarn version (note: node:stretch comes with yarn, we install our own version)
+ENV YARN_VERSION 1.12.1
 RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
     && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/ \
     && ln -snf /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
@@ -15,7 +15,7 @@ RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$
     && rm yarn-v$YARN_VERSION.tar.gz
 
 RUN \
-  apt-get update && apt-get install -y \
+  apt-get update && apt-get install -y --no-install-recommends \
     # browsers
     chromium=${CHROMIUM} firefox-esr=${FIREFOX} \
     # cci deps
