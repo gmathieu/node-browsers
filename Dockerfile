@@ -3,11 +3,11 @@ FROM node:10-stretch
 
 # https://tracker.debian.org/pkg/chromium-browser
 # https://tracker.debian.org/pkg/firefox-esr
-ARG CHROMIUM=70.0.3538.67-1~deb9u1
-ARG FIREFOX=60.3.0esr-1~deb9u1
+ARG CHROMIUM=70.0.3538.110-1~deb9u1
+ARG FIREFOX=60.6.3esr-1~deb9u1
 
 # lock yarn version (note: node:stretch comes with yarn, we install our own version)
-ENV YARN_VERSION 1.12.1
+ENV YARN_VERSION 1.16.0
 RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
     && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/ \
     && ln -snf /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
