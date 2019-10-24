@@ -7,7 +7,7 @@ ARG CHROMIUM=70.0.3538.110-1~deb9u1
 ARG FIREFOX=60.6.3esr-1~deb9u1
 
 # lock yarn version (note: node:stretch comes with yarn, we install our own version)
-ENV YARN_VERSION 1.17.3
+ENV YARN_VERSION 1.19.1
 RUN curl -fSLO --compressed "https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz" \
   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/ \
   && ln -snf /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
