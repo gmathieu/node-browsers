@@ -1,5 +1,5 @@
 # https://store.docker.com/images/node
-FROM node:10-stretch
+FROM node:12-stretch
 
 # https://tracker.debian.org/pkg/chromium-browser
 # https://tracker.debian.org/pkg/firefox-esr
